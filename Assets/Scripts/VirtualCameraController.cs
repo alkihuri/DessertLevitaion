@@ -16,8 +16,8 @@ public class VirtualCameraController : MonoBehaviour
     void Update()
     {
 
-        camera.GetCinemachineComponent<Cinemachine.CinemachineTransposer>().m_FollowOffset.y = 35 - Mathf.Abs(im.verticalInput * 35);
-        camera.GetCinemachineComponent<Cinemachine.CinemachineTransposer>().m_FollowOffset.z = -40 - Mathf.Abs(im.verticalInput * 25);
+        camera.GetCinemachineComponent<Cinemachine.CinemachineTransposer>().m_FollowOffset.y = 15 - Mathf.Abs(im.verticalInput * 5);
+        camera.GetCinemachineComponent<Cinemachine.CinemachineTransposer>().m_FollowOffset.z = -40 - Mathf.Abs(im.verticalInput * 17);
 
     }
 }

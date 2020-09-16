@@ -22,7 +22,7 @@ public class Engine : MonoBehaviour
     void FixedUpdate()
     {
         #region levitation
-        if (Physics.Raycast(transform.position,-transform.up,out ground))
+        if (Physics.Raycast(transform.position,-transform.up+transform.forward,out ground))
         {
             groundDistance = ground.distance;
         }
@@ -37,18 +37,20 @@ public class Engine : MonoBehaviour
         {
             GetComponent<Rigidbody>().AddForce(-transform.up * realMass * enginePower, ForceMode.Impulse);
         }
-        else
-        {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
+        
         #endregion
 
         #region control
         float vertical, horizontal;
         vertical = verticalInput;
-        horizontal = horizontalInput;
-        GetComponent<Rigidbody>().AddForce(transform.forward *realMass  * vertical , ForceMode.VelocityChange);
+        horizontal = horizontalInput * GetComponent<Rigidbody>().velocity.magnitude/25;
+        GetComponent<Rigidbody>().AddForce(transform.forward  * vertical  * realMass/33, ForceMode.VelocityChange);
         transform.Rotate(0, horizontal, 0);
         #endregion
+
+         
     }
+
+   
+
 }

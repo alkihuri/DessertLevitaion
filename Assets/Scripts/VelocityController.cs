@@ -20,7 +20,7 @@ public class VelocityController : MonoBehaviour
         currentSpeed = GetComponent<Rigidbody>().velocity.magnitude;
         if(currentSpeed > maxSpeed)
         {
-            GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized*maxSpeed;
+            GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized*maxSpeed; 
         } 
     }
 }
